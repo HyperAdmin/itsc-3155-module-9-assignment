@@ -6,7 +6,7 @@ from src.models.movie import Movie
 def test_delete_movie():
     movies=get_movie_repository()
     movies.clear_db()
-    movies.create_movie("The Dark Knight", "Christopher Nolan", 10)
+    movies.create_movie("The Dark Knight", "Christopher Nolan", 5)
     movies.create_movie("Saw X","Kevin Greutert", 4)
     result = movies.get_movie_by_title("Saw X")
     assert isinstance(result, Movie)
@@ -22,11 +22,11 @@ def test_delete_movie():
 def test_deleted_selected_movie():
     movies=get_movie_repository()
     movies.clear_db()
-    movies.create_movie("Inception", "Christopher Nolan", 9)
-    movies.create_movie("The Shawshank Redemption", "Frank Darabont", 10)
-    movies.create_movie("The Matrix", "Lana Wachowski, Lilly Wachowski", 9)
-    movies.create_movie("Interstellar", "Christopher Nolan", 9)
-    movies.create_movie("The Dark Knight", "Christopher Nolan", 10)
+    movies.create_movie("Inception", "Christopher Nolan", 4)
+    movies.create_movie("The Shawshank Redemption", "Frank Darabont", 5)
+    movies.create_movie("The Matrix", "Lana Wachowski, Lilly Wachowski", 4)
+    movies.create_movie("Interstellar", "Christopher Nolan", 4)
+    movies.create_movie("The Dark Knight", "Christopher Nolan", 5)
     result = movies.get_movie_by_title("Inception")
     assert len(movies.get_all_movies())==5
     assert isinstance(result, Movie)
