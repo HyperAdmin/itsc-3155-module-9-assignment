@@ -45,9 +45,7 @@ def get_movie_repository():
             # Return the movie instance
             return movie
 
-        def update_movie(
-            self, movie_id: int, title: str, director: str, rating: int
-        ) -> Movie:
+        def update_movie(self, movie_id: int, title: str, director: str, rating: int) -> Movie:
             """Update a movie and return it"""
             # Get a reference to the movie in the dict
             movie = self._db.get(movie_id)
