@@ -87,7 +87,6 @@ def delete_movie(movie_id: int):
     except ValueError:
         abort(404)
     
-    # return render_template('list_all_movies.html', movies=movies, List_movies_active=True)
     return redirect("/movies")
 
 if __name__ == "__main__":
