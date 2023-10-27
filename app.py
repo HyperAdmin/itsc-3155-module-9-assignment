@@ -69,13 +69,20 @@ def get_single_movie(movie_id: int):
 
 @app.get("/movies/<int:movie_id>/edit")
 def get_edit_movies_page(movie_id: int):
-    return render_template("edit_movies_form.html")
+    movie = movie_repository.get_movie_by_id(movie_id)
+    return render_template("edit_movies_form.html", movie=movie)
 
 
 @app.post("/movies/<int:movie_id>")
 def update_movie(movie_id: int):
     # TODO: Feature 5
     # After updating the movie in the database, we redirect back to that single movie page
+    movie = movie_repository.get_movie_by_id(movie_id)
+    new_title = request.form["title"]
+    new_director = request.form["director"]
+    new_rating = int(request.form["rating"])
+
+    edited_movie = movie_repository.update_movie(movie_id, new_title, new_director, new_rating)
     return redirect(f"/movies/{movie_id}")
 
 
