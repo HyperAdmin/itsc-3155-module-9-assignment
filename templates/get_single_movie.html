@@ -1,8 +1,16 @@
 {% extends '_layout.html' %}
 
-{% block title %}Movie Rating App | Movie{% endblock %}
+{% block title %}Movie Rating App | {{ movie.title }}{% endblock %}
 
 {% block body %}
-<h1 class="mb-5"></h1>
-<!-- TODO: Feature 4 -->
+<h1 class="mb-5">{{ movie.title }}</h1>
+<p><strong>Director:</strong> {{ movie.director }}</p>
+<p><strong>Rating:</strong> {{ movie.rating }}</p>
+
+<a href="{{ url_for('get_edit_movies_page', movie_id=movie.movie_id) }}">Edit</a>
+<form action="{{ url_for('delete_movie', movie_id=movie.movie_id) }}" method="post"
+    onsubmit="return confirm('Are you sure you want to delete this movie?');">
+    <button type="submit">Delete</button>
+</form>
+
 {% endblock %}

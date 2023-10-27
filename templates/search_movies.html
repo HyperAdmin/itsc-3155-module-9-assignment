@@ -15,12 +15,12 @@
 </form>
 
 {% if movie %}
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{ movie.title }}</h5>
-            <p class="card-text">Director: {{ movie.director }}</p>
-            <p class="card-text">Rating: {{ movie.rating }}</p>
-        </div>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="card-text">Director: {{ movie.director }}</p>
+        <p class="card-text">Rating: {{ movie.rating }}</p>
     </div>
+</div>
 {% endif %}
 {% endblock %}
