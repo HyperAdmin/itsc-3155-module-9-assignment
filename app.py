@@ -37,7 +37,6 @@ def create_movie():
     title = request.form['title']
     director = request.form['director']
     rating = int(request.form['rating'])
-    
     movie = movie_repository.create_movie(title, director, rating)
     # After creating the movie in the database, we redirect to the list all movies page
     return redirect('/movies')
