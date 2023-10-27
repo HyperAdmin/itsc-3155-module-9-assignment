@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, abort
 from src.repositories.movie_repository import get_movie_repository
 
 app = Flask(__name__)
@@ -81,9 +81,12 @@ def update_movie(movie_id: int):
 
 @app.post("/movies/<int:movie_id>/delete")
 def delete_movie(movie_id: int):
-    # TODO: Feature 6
-    pass
-
+    movies=get_movie_repository
+    try:
+        movies.delete_movie(movie_id)
+    except ValueError:
+        abort(404)
+    return render_template('list_all_movies.html', list_movies_active=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
