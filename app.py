@@ -89,12 +89,13 @@ def update_movie(movie_id: int):
 
 @app.post("/movies/<int:movie_id>/delete")
 def delete_movie(movie_id: int):
-    movies=get_movie_repository
+    movies=movie_repository.get_all_movies()
     try:
-        movies.delete_movie(movie_id)
+        movie_repository.delete_movie(movie_id)
     except ValueError:
         abort(404)
-    return render_template('list_all_movies.html', list_movies_active=True)
+    
+    return redirect("/movies")
 
 if __name__ == "__main__":
     app.run(debug=True)
