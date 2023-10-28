@@ -1,12 +1,12 @@
-<!-- {% extends '_layout.html' %}
+{% extends '_layout.html' %}
 
 {% block title %}Movie Rating App | All Movies{% endblock %}
 
 {% block body %}
 <h1 class="mb-5">All Movies</h1>
 <p class="mb-3">See our list of movie ratings below</p>
-TODO: Feature 1 -->
-<!-- <table class="table">
+<!-- TODO: Feature 1 -->
+<table class="table">
     <thead>
         <tr>
             <th>Title</th>
@@ -16,10 +16,10 @@ TODO: Feature 1 -->
     <tbody>
         {% for movie in movies %}
         <tr>
-            <td>{{ movie.title }}</td>
+            <td><a href="{{ url_for('get_single_movie', movie_id=movie.movie_id) }}">{{ movie.title }}</a></td>
             <td>{{ movie.rating }}</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-{% endblock %} -->
+{% endblock %}
